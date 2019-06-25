@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pentago Noob</string>
+    <string name="undo">Undo</string>
+    <string name="undoing">Undoing</string>
+    <string name="new_game">New Game</string>
+    <string name="options">Options</string>
+    <string name="help">Help</string>
+    <string name="help_text">\
+The object is to get 5 of your markers \
+in an unbroken straight line, horizontal, vertical, or diagonal.\n\n\
+Two players take turns. White goes first.\n\
+A turn consists of placing a marker by tapping any empty position \
+- then twisting any one of the 4 blocks 90 degrees \
+clockwise or counterclockwise by swiping around its center.\n\n\
+The game and name Pentago is a trademark of Tomas Flodén.\n
+	</string>
+    <string name="empty"></string>
+    <string name="w_thinking">White thinking…</string>
+    <string name="waiting_w_m">Waiting for White\'s marker</string>
+    <string name="waiting_w_t">Waiting for White\'s twist</string>
+    <string name="w_win">White WINS!</string>
+    <string name="b_thinking">Black thinking…</string>
+    <string name="waiting_b_m">Waiting for Black\'s marker</string>
+    <string name="waiting_b_t">Waiting for Black\'s twist</string>
+    <string name="b_win">Black WINS!</string>
+    <string name="draw">Draw!!</string>
+    <string name="stalemate">Stalemate!</string>
+    <string name="done">Done</string>
+    <string name="white_player">White player:</string>
+    <string name="black_player">Black player:</string>
+    <string-array name="players">
+        <item>Manual (you)</item>
+        <item>Random Moves</item>
+        <item>Dumb AI</item>
+        <item>Decent AI</item>
+        <item>Better AI</item>
+    </string-array>
+</resources>

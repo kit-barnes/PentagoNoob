@@ -1,0 +1,98 @@
+when placing marble
+	win
+		immediate win
+		turn win
+	block opponent win
+	play ttt on whichever quad last marble was placed
+	side 3
+	ortho center 3
+	diag center 3 
+	
+	move on new quad only if (when?) all ttt wins are blocked
+
+
+
+
+
+possible white/black win array(s) - prune hunt for wins
+
+	center blocks: this&adj-row1&col1,this&opp-diag6
+	oppcnr blocks: this-row0&row2&col0&col2,
+	oppside&adjoppside blocks: all diag5
+	
+	
+	
+Algorithm - Version 1.0 to current:
+
+	from scratch at the start of the side's turn
+
+	for each possible move (put and twist combination) for this side (empty dimples * 8 rotations)
+		computes a frequency plot w[] of the 32 possible wins
+				(12 horizontal, 12 vertical, 4 diagonal, and 4 <triple power play>)
+			against the minimum number of additional moves (ignoring opponent moves)
+			to achieve that win. Blocked wins are considered to be 6 moves away.
+			
+			for a completely empty board, w = [ 0, 0, 0, 0, 0, 32, 0 ]
+				(all wins are a minimum of 5 moves away)
+			for a single marble placed in a quadrant center, w = [ 0, 0, 0, 0, 6, 26, 0 ]
+				(6 wins are now only 4 moves away: 2 horizontal, 2 vertical, and 2 diagonal)
+				
+		computes a similar plot l[] of the opponent's wins.
+		
+			if the board is empty except for one opponent's marble in a quadrant center
+				and this player places a marble in a corner of the same quadrant
+					l = [ 0, 0, 0, 0, 6, 26, 0 ]	(same as before - in this case)
+					w = [ 0, 0, 0, 0, 9, 21, 2 ]
+						(9 wins are 4 moves away: 4 horizontal, 4 vertical, and 1 <triple power play>
+							2 diagonal wins are blocked)
+	
+		this move's l and w are compared to the current best's l and w
+			if this move is not as good as the current best, it is discarded
+			if this move is better, it becomes the current best
+			if equally good, it might replace the current best, depending on a weighted algorithm
+
+
+
+Controls
+
+	Basic:
+		Options
+			Calls OptionsDialog
+		Undo
+			Undoes the last move (put or twist).
+			If the computer is playing one side, undoes moves until one by the player has been undone.
+			If the computer is playing both sides, undoes moves until a put has been undone.
+
+	Full:
+		Options
+			Calls OptionsDialog
+		Status bar
+			Displays a bar graph of black and white moves and a playhead position indicator.
+			Clicking on a move
+				Pauses the game
+				Moves the playhead to after that move and shows the game state at that point
+				Reveals the Back, Forward, Record, and Play buttons
+		Back button
+			Moves the playhead back one move (with animation)
+		Forward button
+			Moves the playhead forward one move (with animation)
+		Record button
+			Discards all moves following the playhead
+			Unpauses the game
+		Play button
+			Unpauses the game (Game advances playhead, animating moves)
+	
+	
+	Notes
+		If you exit the options dialog (via OK) with full controls unselected,the game will be unpaused.
+		If this happens with the playhead not at the end, you will be locked out
+		until all the following moves have been animated.
+		
+		
+	
+	
+	
+DUMB-DOWN
+	
+	randomly neglect to check rotations on wins
+		( by level of threat - opponent's windistance before move?)

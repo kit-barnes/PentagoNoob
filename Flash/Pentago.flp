@@ -1,0 +1,15 @@
+﻿<flash_project name="Pentago" version="1">
+    <project_file path="./Pentago.fla" filetype="fla" profile="" def_file="true" />
+    <project_file path="./Game.as" filetype="as" />
+    <project_file path="./Dimple.as" filetype="as" />
+    <project_file path="./Twister.as" filetype="as" />
+    <project_file path="./Utils.as" filetype="as" />
+    <project_file path="./Situation.as" filetype="as" />
+    <project_file path="./Btn.as" filetype="as" />
+    <project_file path="./Quadrant.as" filetype="as" />
+    <project_file path="./Options.as" filetype="as" />
+    <project_file path="./Checkbox.as" filetype="as" />
+    <project_file path="./Controls.as" filetype="as" />
+    <project_file path="./Graph.as" filetype="as" />
+    <project_file path="./Check.as" filetype="as" />
+</flash_project>

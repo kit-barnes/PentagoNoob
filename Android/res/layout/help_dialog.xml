@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/layout_help"
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/help_text"
+    />
+	<Button android:id="@+id/help_done_button"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/done"
+	/>
+</LinearLayout>
